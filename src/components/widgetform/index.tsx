@@ -39,6 +39,7 @@ export function WidgetForm() {
 
   function handleRestartFeedback() {
     setFeedbackType(null);
+    setFeedbackSent(false);
   }
   return (
     <div
@@ -46,7 +47,7 @@ export function WidgetForm() {
     items-center shadow-lg w-[calc(100vw-20rem)] md:w-auto"
     >
       {feedbackSent ? (
-        <FeedbackSuccessStep />
+        <FeedbackSuccessStep onFeedbackRestartRequested={handleRestartFeedback} />
       ) : (
         <>
           {!feedbackType ? (
